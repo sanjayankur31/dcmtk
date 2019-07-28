@@ -38,6 +38,7 @@
 
 // JPEG-LS library (CharLS) includes
 #include "CharLS/charls.h"
+#include "CharLS/public_types.h"
 
 E_TransferSyntax DJLSLosslessDecoder::supportedTransferSyntax() const
 {
@@ -382,7 +383,7 @@ OFCondition DJLSDecoderBase::decodeFrame(
   if (result.good())
   {
     JlsParameters params;
-    JLS_ERROR err;
+    CharlsApiResultType err;
 
     err = JpegLsReadHeader(jlsData, compressedSize, &params);
     result = DJLSError::convert(err);
