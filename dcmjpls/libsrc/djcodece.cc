@@ -55,7 +55,7 @@
 #include "dcmtk/dcmimgle/dcmimage.h"  /* for class DicomImage */
 
 // JPEG-LS library (CharLS) includes
-#include "intrface.h"
+#include "CharLS/charls.h"
 
 BEGIN_EXTERN_C
 #ifdef HAVE_FCNTL_H
