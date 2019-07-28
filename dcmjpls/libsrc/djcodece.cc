@@ -56,7 +56,7 @@
 
 // JPEG-LS library (CharLS) includes
 #include "CharLS/charls.h"
-#include "CharLS/public_types.h"
+#include "CharLS/publictypes.h"
 
 BEGIN_EXTERN_C
 #ifdef HAVE_FCNTL_H
