@@ -306,6 +306,21 @@ else()
     endif()
   endif()
 
+  # Find charls
+  SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMake)
+
+  if(DCMTK_WITH_CHARLS)
+      FIND_PACKAGE(CharLS)
+      INCLUDE_DIRECTORIES(${CHARLS_INCLUDE_DIRS})
+      SET(CHARLS_LIBS ${CHARLS_LIBRARIES})
+      if (NOT CHARLS_LIBS)
+          MESSAGE(STATUS "Warning: CharLS not found. Cannot build!")
+      else(NOT CHARLS_LIBS)
+          MESSAGE(STATUS "Info: DCMTK CHARLS support will be enabled")
+          SET(WITH_CHARLS 1)
+      endif(NOT CHARLS_LIBS)
+  endif(DCMTK_WITH_CHARLS)
+
 endif()
 
 if(NOT DEFINED DCMTK_WITH_STDLIBC_ICONV)
