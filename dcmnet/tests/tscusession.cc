@@ -280,7 +280,7 @@ void configure_scp_for_sop_class(DcmSCPConfig& cfg,
 void scu_session(const OFString& called_ae_title, const OFString& sop_class)
 {
     // Make sure server is up
-    force_sleep(1);
+    force_sleep(10);
     // Basic configuration
     SessionSCU scu;
     scu.setAETitle("TEST_SCU");
@@ -334,13 +334,13 @@ OFTEST_FLAGS(dcmnet_scu_session_handler, EF_Slow)
 
     // Send FIND, and wait to be sure SCP has time to exit
     scu_session("FIND_SESSION", UID_FINDPatientRootQueryRetrieveInformationModel);
-    force_sleep(1);
+    force_sleep(10);
     scp.join();
 
     // Send MOVE, and wait to be sure SCP has time to exit
     scp.start();
     scu_session("MOVE_SESSION", UID_MOVEPatientRootQueryRetrieveInformationModel);
-    force_sleep(1);
+    force_sleep(10);
     scp.join();
 
     // TODO: Test C-GET

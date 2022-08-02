@@ -347,7 +347,7 @@ OFTEST_FLAGS(dcmtls_scp_tls, EF_None)
       port_number = 0xF000 + (rnd.getRND16() & 0xFFF);
       config.setPort(port_number);
       scp.start();
-      force_sleep(2); // wait 2 seconds for the SCP process to start
+      force_sleep(10); // wait 10 seconds for the SCP process to start
       memory_barrier.lock();
       memory_barrier.unlock();
     }
@@ -429,7 +429,7 @@ OFTEST_FLAGS(dcmtls_scp_pool_tls, EF_None)
       port_number = 0xF000 + (rnd.getRND16() & 0xFFF);
       config.setPort(port_number);
       pool.start();
-      force_sleep(2); // wait 2 seconds for the SCP process to start
+      force_sleep(10); // wait 10 seconds for the SCP process to start
       memory_barrier.lock();
       memory_barrier.unlock();
     }
@@ -460,7 +460,7 @@ OFTEST_FLAGS(dcmtls_scp_pool_tls, EF_None)
 
     // "ensure" the pool is initialized before any SCU starts connecting to it. The initialization
     // can take a couple of seconds on older systems, e.g. debian i368.
-    force_sleep(5);
+    force_sleep(15);
 
     for (OFVector<TestTLSSCU*>::const_iterator it2 = scus.begin(); it2 != scus.end(); ++it2)
     {
